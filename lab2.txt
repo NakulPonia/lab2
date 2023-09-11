@@ -316,7 +316,7 @@ namespace Assignment2
     }
     public class Dog : Animal
     {
-        public override void Voice(string sound)
+        public override void Sound(string sound)
         {
             Console.WriteLine("Dog sound " + sound);
             Console.ReadLine();
