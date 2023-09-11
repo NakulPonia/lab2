@@ -386,54 +386,30 @@ namespace Assignment2
 using System;
 namespace Assignment2
 {
-    internal class Program
+    public class BankAccount
     {
-        static void Main(string[] args)
-        {
-            
+        double accountNumber=36898421566;
+        double Balance = 20000;
+    }
 
+    sealed class SavingsAccount : BankAccount
+    {
+        public double CalculateInt(double rate, double time,double balance)
+        {
+            double Interest = (balance*rate*time)/100;
+            return Interest;
         }
-
-         sealed class Bank
+        public void Display(double interset, double balance, double acn)
         {
-            public int AccountNumber;
-            public string name;
-            public double balance;
-
-            public Bank(int AccountNumber, string name, double balance)
-            {
-                this.AccountNumber = AccountNumber;
-                this.name = name;
-                this.balance = balance;
-            }
-            public void deposit(double balance)
-            {
-                balance += balance;
-            }
-            public void withdrawl(double amount)
-            {
-                if (amount > balance)
-                {
-                    Console.WriteLine("Insufficinent Balance");
-                }
-                else
-                {
-                    balance = balance - amount;
-                }
-            }
-            public void displayData()
-            {
-                Console.WriteLine("AccountNumber:" + this.AccountNumber);
-                Console.WriteLine("Name :" + this.name);
-                Console.WriteLine("Balance :" + this.balance);
-                Console.ReadKey();
-            }
+            balance+= interest;
+            Console.WriteLine("balance :"+ balance);
+            Console.WriteLine("Account no. :" +acn);
         }
-        class SavingAccount : Bank
+        public static void Main()
         {
-            public int AccountNumber;
-            public string name;
-            
+           SavingsAccount sa = new SavingsAccount();
+           double Intrest = sa.CalculateInt(10,3,sa.Balance);
+           sa.Display(Intrest,sa.Balance,sa.accountNumber);
         }
     }
    
